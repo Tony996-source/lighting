@@ -169,7 +169,7 @@ minetest.register_node('lighting:glowlightblock', {
 	light_source = LIGHT_MAX-1,
 	sounds = default.node_sound_wood_defaults(),
 	groups = { snappy = 3},
-	drop="lighting:glowlight_block",
+	drop="lighting:glowlightblock",
 	  on_place = function(itemstack, placer, pointed_thing)
     return lighting.rotate_and_place(itemstack, placer, pointed_thing)
   end,
@@ -224,7 +224,9 @@ lighting.register_variants({
   sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node("lighting:walllamp", {
+-- modern wall lamp
+
+minetest.register_node("lighting:modern_walllamp", {
   description = "Modern Wall Lamp",
   drawtype = "mesh",
   mesh = "modern_walllamp.obj",
@@ -244,7 +246,7 @@ minetest.register_node("lighting:walllamp", {
   sounds = default.node_sound_glass_defaults(),
 
   on_place = function(itemstack, placer, pointed_thing)
-    return morelights.rotate_and_place(itemstack, placer, pointed_thing,
+    return lighting.rotate_and_place(itemstack, placer, pointed_thing,
       {[0] = 6, 4, 1, 3, 0, 2})
   end,
 })
@@ -466,7 +468,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-  output = "lighting:walllamp",
+  output = "lighting:modern_walllamp",
   recipe = {
     {"dye:white", "default:glass", ""},
     {"default:glass", "default:torch", "default:steel_ingot"},
