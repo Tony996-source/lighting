@@ -432,7 +432,60 @@ minetest.register_node("lighting:lamp", {
     local node = minetest.get_node(vector.subtract(pointed_thing.above,
       {x=0, y=1, z=0}))
 
+local stairs_mod = minetest.get_modpath("stairs")
+local stairsplus_mod = minetest.get_modpath("moreblocks")
+	and minetest.global_exists("stairsplus")
+	
+    if node and node.name:match("^moreblocks:stair_")
+      and node.param2 < 4 then
       minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^bakedclay:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^allsidedtrees:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+
+    if node and node.name:match("^hardenedclay:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^colouredconcrete:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^coloured_glass:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^framed_coloured_glass:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^wool:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^moretrees:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+    
+    if node and node.name:match("^glazedterracotta:stair_")
+      and node.param2 < 4 then
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+    end
+
 
     return itemstack
   end,
@@ -441,10 +494,57 @@ minetest.register_node("lighting:lamp", {
     return false
   end,
 })
+
+-- path light
+
+lighting.register_variants({
+  {name = "lighting:pathlight_d",
+    description = "Modern Path Light (dark)",
+    tiles = {"metal_dark_32.png^modern_pathlight.png"}},
+  {name = "lighting:pathlight_l",
+    description = "Modern Path Light (light)",
+    tiles = {"metal_light_32.png^modern_pathlight.png"}}
+},
+{
+  drawtype = "nodebox",
+  node_box = {
+    type = "fixed",
+    fixed = {{-1/32, -8/16, -1/32, 1/32, 1/8, 1/32},
+      {-1/16, 1/8, -1/16, 1/16, 5/16, 1/16},
+      {-1/8, 5/16, -1/8, 1/8, 3/8, 1/8}}
+  },
+  selection_box = {
+    type = "fixed",
+    fixed = {{-1/8, -1/2, -1/8, 1/8, 3/8, 1/8}}
+  },
+  paramtype = "light",
+  light_source = 8,
+  groups = {cracky = 3, oddly_breakable_by_hand = 3},
+  sounds = default.node_sound_metal_defaults(),
+})
+
 -- Crafts
 
 minetest.register_craft({
-  output = "morelights_extras:stairlight",
+  output = "lighting:pathlight_d",
+  recipe = {
+    {"dye:grey", "default:torch", ""},
+    {"", "default:steel_ingot", ""},
+    {"", "default:steel_ingot", ""}
+  }
+})
+
+minetest.register_craft({
+  output = "lighting:pathlight_l",
+  recipe = {
+    {"dye:white", "default:torch", ""},
+    {"", "default:steel_ingot", ""},
+    {"", "default:steel_ingot", ""}
+  }
+})
+
+minetest.register_craft({
+  output = "lighting:stairlight",
   recipe = {
     {"default:steel_ingot", "default:torch", "default:steel_ingot"}
   }
