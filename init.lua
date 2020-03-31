@@ -404,8 +404,52 @@ minetest.register_node("lighting:lamp", {
 	groups = {cracky = 2, oddly_breakable_by_hand = 3},
 	sounds = default.node_sound_glass_defaults(),
 })
+ -- Stairs lights
+ 
+ minetest.register_node("lighting:stairlight", {
+  description = "Stair Light (place on stairs)",
+  drawtype = "nodebox",
+  node_box = {
+    type = "fixed",
+    fixed = {-1/4, -13/16, -1/16, 1/4, -11/16, 0}
+  },
+  selection_box = {
+    type = "fixed",
+    fixed = {-1/4, -13/16, -1/16, 1/4, -11/16, 0}
+  },
+  walkable = false,
+  tiles = {"metal_dark.png"},
+  overlay_tiles = {"", "stairlight.png",
+    "", "", "stairlight.png"},
+  paramtype = "light",
+  paramtype2 = "facedir",
+  light_source = 10,
+  groups = {cracky = 2, oddly_breakable_by_hand = 3, attached_node = 1},
+  node_placement_prediction = "",
+  sounds = default.node_sound_glass_defaults(),
 
+  on_place = function(itemstack, placer, pointed_thing)
+    local node = minetest.get_node(vector.subtract(pointed_thing.above,
+      {x=0, y=1, z=0}))
+
+      minetest.item_place(itemstack, placer, pointed_thing, node.param2)
+
+    return itemstack
+  end,
+
+  on_rotate = function(pos, node, user, mode, new_param2)
+    return false
+  end,
+})
 -- Crafts
+
+minetest.register_craft({
+  output = "morelights_extras:stairlight",
+  recipe = {
+    {"default:steel_ingot", "default:torch", "default:steel_ingot"}
+  }
+})
+
 minetest.register_craft({
   output = "lighting:glowlight_half_white",
   recipe = {
