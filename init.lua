@@ -289,6 +289,32 @@ minetest.register_node("lighting:barlight_s", {
   sounds = default.node_sound_glass_defaults(),
 })
 
+-- street post
+
+lighting.register_variants({
+  {name = "lighting:streetpost_d",
+    description = "Street Lamp Post (dark)--connects to bar lights",
+    tiles = {"metal_dark.png"}},
+  {name = "lighting:streetpost_l",
+    description = "Street Lamp Post (light)--connects to bar lights",
+    tiles = {"metal_light.png"}}
+},
+{
+  drawtype = "nodebox",
+  node_box = {
+    type = "connected",
+    fixed = {-1/16, -1/2, -1/16, 1/16,  1/2, 1/16},
+    connect_front = {-1/16,  3/8, -1/2, 1/16,  7/16, -1/16},
+    connect_left = {-1/2, 3/8, -1/16, -1/16, 7/16, 1/16},
+    connect_back = {-1/16, 3/8, 1/16, 1/16, 7/16, 1/2},
+    connect_right = {1/16, 3/8, -1/16, 1/2, 7/16, 1/16},
+  },
+  connects_to = {"lighting:barlight_c", "lighting:barlight_s"},
+  paramtype = "light",
+  groups = {cracky = 2, oddly_breakable_by_hand = 3},
+  sounds = default.node_sound_metal_defaults(),
+})
+
 -- Vintage lights
 
 minetest.register_node("lighting:vintage_lantern_f", {
