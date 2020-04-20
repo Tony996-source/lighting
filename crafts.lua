@@ -157,3 +157,11 @@ minetest.register_craft({
 	{'default:tin_ingot'},
 	}
 })
+
+minetest.register_craft({
+	output = "lighting:light_rod 4",
+	recipe = {
+		{"mobs:lava_orb"},
+		{"group:stick"},
+	},
+})
