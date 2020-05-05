@@ -80,7 +80,7 @@ minetest.register_node('lighting:glowlight_half_white', {
 	walkable = true,
 	light_source = LIGHT_MAX,
 	sounds = default.node_sound_wood_defaults(),
-	groups = { snappy = 3},
+	groups = { snappy = 3, oddly_breakable_by_hand = 3},
 	drop="lighting:glowlight_half_white",
 	  on_place = function(itemstack, placer, pointed_thing)
     return lighting.rotate_and_place(itemstack, placer, pointed_thing)
@@ -115,7 +115,7 @@ minetest.register_node('lighting:glowlight_quarter_white', {
 	walkable = true,
 	light_source = LIGHT_MAX,
 	sounds = default.node_sound_wood_defaults(),
-	groups = { snappy = 3},
+	groups = { snappy = 3, oddly_breakable_by_hand = 3},
 	drop="lighting:glowlight_quarter_white",
 	  on_place = function(itemstack, placer, pointed_thing)
     return lighting.rotate_and_place(itemstack, placer, pointed_thing)
@@ -149,7 +149,7 @@ minetest.register_node('lighting:glowlight_small_cube_white', {
 	walkable = true,
 	light_source = LIGHT_MAX,
 	sounds = default.node_sound_wood_defaults(),
-	groups = { snappy = 3},
+	groups = { snappy = 3, oddly_breakable_by_hand = 3},
 	drop="lighting:glowlight_small_cube_white",
 	  on_place = function(itemstack, placer, pointed_thing)
     return lighting.rotate_and_place(itemstack, placer, pointed_thing)
@@ -173,7 +173,8 @@ minetest.register_node('lighting:glowlightblock', {
 	paramtype2 = "facedir",
 	walkable = true,
 	light_source = LIGHT_MAX,
-	sounds = default.node_sound_wood_defaults(),
+    groups = {cracky = 2, oddly_breakable_by_hand = 3},
+    sounds = default.node_sound_glass_defaults(),
 	groups = { snappy = 3},
 	drop="lighting:glowlightblock",
 	  on_place = function(itemstack, placer, pointed_thing)
