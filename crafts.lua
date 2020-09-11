@@ -123,6 +123,24 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+  output = "lighting:blue_lantern_f",
+  recipe = {
+    {"", "default:steel_ingot", ""},
+    {"framed_coloured_glass:blue", "default:torch", "framed_coloured_glass:blue"},
+    {"default:stick", "default:steel_ingot", "default:stick"}
+  }
+})
+
+minetest.register_craft({
+  output = "lighting:lantern_f",
+  recipe = {
+    {"", "default:steel_ingot", ""},
+    {"framed_coloured_glass:orange", "default:torch", "framed_coloured_glass:orange"},
+    {"default:stick", "default:steel_ingot", "default:stick"}
+  }
+})
+
+minetest.register_craft({
 	output = 'lighting:lantern 4',
 	recipe = {
 		{'group:stick','default:glass','group:stick'},
