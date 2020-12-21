@@ -179,7 +179,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "lighting:light_rod 4",
 	recipe = {
-		{"mobs:lava_orb"},
-		{"group:stick"},
+		{"mobs_mc:blaze_rod"},
+		{"mobs_mc:blaze_rod"},
+		{"technic:wrought_iron_ingot"},
 	},
 })

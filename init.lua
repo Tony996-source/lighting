@@ -226,7 +226,7 @@ lighting.register_variants({
     fixed = {-1/4, -1/2, -1/4, 1/4, 7/16, 1/4}
   },
   paramtype = "light",
-  light_source = 10,
+  light_source = LIGHT_MAX,
   groups = {choppy = 2, oddly_breakable_by_hand = 3},
   sounds = default.node_sound_defaults(),
 })
@@ -248,7 +248,7 @@ minetest.register_node("lighting:modern_walllamp", {
   tiles = {"metal_dark_32.png^modern_walllamp.png"},
   paramtype = "light",
   paramtype2 = "facedir",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3},
   sounds = default.node_sound_glass_defaults(),
 
@@ -456,7 +456,7 @@ minetest.register_node("lighting:lamp", {
     "", "", "stairlight.png"},
   paramtype = "light",
   paramtype2 = "facedir",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3, attached_node = 1},
   node_placement_prediction = "",
   sounds = default.node_sound_glass_defaults(),
@@ -551,7 +551,7 @@ lighting.register_variants({
     fixed = {{-1/8, -1/2, -1/8, 1/8, 3/8, 1/8}}
   },
   paramtype = "light",
-  light_source = 8,
+  light_source = LIGHT_MAX,
   groups = {cracky = 3, oddly_breakable_by_hand = 3},
   sounds = default.node_sound_metal_defaults(),
 })
@@ -645,7 +645,7 @@ minetest.register_node("lighting:blue_lantern_f", {
     fixed = {-3/16, -1/2, -3/16, 3/16, 1/16, 3/16}
   },
   paramtype = "light",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3},
   sounds = default.node_sound_glass_defaults(),
 
@@ -682,7 +682,7 @@ minetest.register_node("lighting:blue_lantern_c", {
     fixed = {-3/16, 0, -3/16, 3/16, 1/2, 3/16}
   },
   paramtype = "light",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3,
     not_in_creative_inventory = 1},
   sounds = default.node_sound_glass_defaults(),
@@ -705,7 +705,7 @@ minetest.register_node("lighting:blue_lantern_w", {
   },
   paramtype = "light",
   paramtype2 = "wallmounted",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3,
     not_in_creative_inventory = 1},
   sounds = default.node_sound_glass_defaults(),
@@ -728,7 +728,7 @@ minetest.register_node("lighting:lantern_f", {
     fixed = {-3/16, -1/2, -3/16, 3/16, 1/16, 3/16}
   },
   paramtype = "light",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3},
   sounds = default.node_sound_glass_defaults(),
 
@@ -765,7 +765,7 @@ minetest.register_node("lighting:lantern_c", {
     fixed = {-3/16, 0, -3/16, 3/16, 1/2, 3/16}
   },
   paramtype = "light",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3,
     not_in_creative_inventory = 1},
   sounds = default.node_sound_glass_defaults(),
@@ -788,7 +788,7 @@ minetest.register_node("lighting:lantern_w", {
   },
   paramtype = "light",
   paramtype2 = "wallmounted",
-  light_source = 12,
+  light_source = LIGHT_MAX,
   groups = {cracky = 2, oddly_breakable_by_hand = 3,
     not_in_creative_inventory = 1},
   sounds = default.node_sound_glass_defaults(),
